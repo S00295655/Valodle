@@ -10,7 +10,7 @@
         <Image Margin="-4,0,0,-18" Source="/jhvvuhfvuhfgig.jpg" Stretch="Fill"/>
         <Button x:Name="Play_now_button" Content="PLAY NOW" HorizontalAlignment="Left" Height="54" 
                Margin="282,268,0,0" VerticalAlignment="Top" Width="232" 
-               Click="Button_Click" FontSize="22" IsDefault="True" FontWeight="Bold" Foreground="#FFD8C4C4" BorderBrush="Black" Background="#FF2D2D2D" MouseMove="Play_now_button_MouseMove">
+               Click="Button_Click" FontSize="22" IsDefault="True" FontWeight="Bold" Foreground="#FFD8C4C4" BorderBrush="Black" Background="#FF2D2D2D">
 
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
