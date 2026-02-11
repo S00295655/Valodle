@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Image Margin="-4,0,0,-18" Source="/jhvvuhfvuhfgig.jpg" Stretch="Fill"/>
+        <Button x:Name="Play_now_button" Content="PLAY NOW" HorizontalAlignment="Left" Height="54" 
+               Margin="282,268,0,0" VerticalAlignment="Top" Width="232" 
+               Click="Button_Click" FontSize="22" IsDefault="True" FontWeight="Bold" Foreground="#FFD8C4C4" BorderBrush="Black" Background="#FF2D2D2D" MouseMove="Play_now_button_MouseMove">
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <!-- State triggers -->
+                    <Style.Triggers>
+                        <!-- Mouse hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkRed"/>
+                            <Setter Property="Foreground" Value="LightSlateGray"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Label x:Name="title_Copy" Content="VALODLE" HorizontalAlignment="Center" 
+           Height="143" Margin="0,152,0,0" VerticalAlignment="Top" Width="468" 
+           Foreground="#FF7F2A2A" FontSize="90" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Valorant" Background="Transparent" BorderBrush="White"/>
+        <Label x:Name="title" Content="VALODLE" HorizontalAlignment="Left" 
+              Height="143" Margin="166,160,0,0" VerticalAlignment="Top" Width="452" 
+              Foreground="#FFED1515" FontSize="89" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Valorant" Background="Transparent" BorderBrush="White">
+
+        </Label>
+
+    </Grid>
+</Window>
