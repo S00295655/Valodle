@@ -68,7 +68,7 @@ namespace WpfApp1
                 new Agent { Name = "Omen",    Gender = "Man",  RoleKey = "Controller", Continent = "Unknown", ReleaseDate = 2020 , ImagePath = "Images/Omen.png"},
                 new Agent { Name = "Viper",    Gender = "Woman", RoleKey = "Controller", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Viper.png"  },
                 new Agent { Name = "Astra",    Gender = "Woman",  RoleKey = "Controller", Continent = "Africa", ReleaseDate = 2021, ImagePath = "Images/Astra.png"},
-                new Agent { Name = "Harbor",  Gender = "Man", RoleKey = "Controller",Continent = "Asia", ReleaseDate = 2022 , ImagePath = "Images/Jett.Harbor"},
+                new Agent { Name = "Harbor",  Gender = "Man", RoleKey = "Controller",Continent = "Asia", ReleaseDate = 2022 , ImagePath = "Images/Harbor.png"},
                 new Agent { Name = "Clove",   Gender = "Non Binary",  RoleKey = "Controller", Continent = "Europe", ReleaseDate = 2024 , ImagePath = "Images/Clove.png" },
 
                 // ── SENTINELS ────────────────────────────────────
