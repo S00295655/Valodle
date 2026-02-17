@@ -127,7 +127,12 @@ namespace WpfApp1
 
             if (_selectedAgent.Name == _targetAgent.Name)
             {
-                MessageBox.Show($"You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!","", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"VICTORY !!! You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!","", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            if (_attemptCount > 4)
+            {
+                MessageBox.Show($"DEFEAT... \n The answer was {_targetAgent.Name} !!", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             AgentListBox.SelectedItem = null;
@@ -137,7 +142,7 @@ namespace WpfApp1
         private Border MakeNameCell(Agent agent)
         {
             bool nameOk = agent.Name == _targetAgent.Name;
-
+            
             
             var image = new Image
             {
