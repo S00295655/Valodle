@@ -47,41 +47,35 @@ namespace WpfApp1
         {
             _allAgents = new List<Agent>
             {
-                // ── DUELISTS ─────────────────────────────────────
-                new Agent { Name = "Jett",   Gender = "Woman", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2020, ImagePath = "Images/Jett.png"},
-                new Agent { Name = "Reyna", Gender = "Woman", RoleKey = "Duelist",Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Reyna.png"},
-                new Agent { Name = "Phoenix", Gender = "Man", RoleKey = "Duelist",Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Phoenix.png"},
-                new Agent { Name = "Raze", Gender = "Woman", RoleKey = "Duelist", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Raze.png"},
-                new Agent { Name = "Yoru", Gender = "Man", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2021, ImagePath = "Images/Yoru.png"},
-                new Agent { Name = "Neon", Gender = "Woman",RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2022, ImagePath = "Images/Neon.png"},
-                new Agent { Name = "Iso", Gender = "Man", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2023, ImagePath = "Images/Iso.png"},
-                new Agent { Name = "Waylay",Gender = "Woman", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2025, ImagePath = "Images/Waylay.png"},
 
-                // ── INITIATORS ────────────────────────────────────
-                new Agent { Name = "Sova", Gender = "Man", RoleKey = "Initiator", Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Sova.png"},
-                new Agent { Name = "Breach",  Gender = "Man", RoleKey = "Initiator",Continent = "", ReleaseDate = 2020, ImagePath = "Images/Breach.png"},
-                new Agent { Name = "Skye",   Gender = "Woman", RoleKey = "Initiator",Continent = "Oceania", ReleaseDate = 2020, ImagePath = "Images/Skye.png" },
-                new Agent { Name = "KAY/O",  Gender = "Man", RoleKey = "Initiator", Continent = "Asia", ReleaseDate = 2021, ImagePath = "Images/KAYO.png"},
+                new Agent { Name = "Astra",    Gender = "Woman",  RoleKey = "Controller", Continent = "Africa", ReleaseDate = 2021, ImagePath = "Images/Astra.png"},
+                new Agent { Name = "Breach",  Gender = "Man", RoleKey = "Initiator",Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Breach.png"},
+                new Agent { Name = "Brimstone",  Gender = "Man",RoleKey = "Controller", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Brimstone.png"},
+                new Agent { Name = "Chamber",  Gender = "Man", RoleKey = "Sentinel",Continent = "Europe", ReleaseDate = 2021, ImagePath = "Images/Chamber.png"},
+                new Agent { Name = "Clove",   Gender = "Non Binary",  RoleKey = "Controller", Continent = "Europe", ReleaseDate = 2024 , ImagePath = "Images/Clove.png" },
+                new Agent { Name = "Cypher",  Gender = "Man",  RoleKey = "Sentinel", Continent = "Africa", ReleaseDate = 2020, ImagePath = "Images/Cypher.png" },
+                new Agent { Name = "Deadlock", Gender = "Woman",RoleKey = "Sentinel", Continent = "Europe", ReleaseDate = 2023, ImagePath = "Images/Deadlock.png"},
                 new Agent { Name = "Fade",   Gender = "Woman", RoleKey = "Initiator", Continent = "Africa", ReleaseDate = 2022, ImagePath = "Images/Fade.png"},
                 new Agent { Name = "Gekko",  Gender = "Man", RoleKey = "Initiator", Continent = "America", ReleaseDate = 2023, ImagePath = "Images/Gekko.png"},
-                new Agent { Name = "Tejo",   Gender = "Man", RoleKey = "Initiator", Continent = "America", ReleaseDate = 2025, ImagePath = "Images/Tejo.png"},
-
-                // ── CONTROLLERSS ────────────────────────────────────
-                new Agent { Name = "Brimstone",  Gender = "Man",RoleKey = "Controller", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Brimstone.png"},
-                new Agent { Name = "Omen",    Gender = "Man",  RoleKey = "Controller", Continent = "Unknown", ReleaseDate = 2020 , ImagePath = "Images/Omen.png"},
-                new Agent { Name = "Viper",    Gender = "Woman", RoleKey = "Controller", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Viper.png"  },
-                new Agent { Name = "Astra",    Gender = "Woman",  RoleKey = "Controller", Continent = "Africa", ReleaseDate = 2021, ImagePath = "Images/Astra.png"},
                 new Agent { Name = "Harbor",  Gender = "Man", RoleKey = "Controller",Continent = "Asia", ReleaseDate = 2022 , ImagePath = "Images/Harbor.png"},
-                new Agent { Name = "Clove",   Gender = "Non Binary",  RoleKey = "Controller", Continent = "Europe", ReleaseDate = 2024 , ImagePath = "Images/Clove.png" },
-
-                // ── SENTINELS ────────────────────────────────────
-                new Agent { Name = "Sage",    Gender = "Woman", RoleKey = "Sentinel", Continent = "Asia", ReleaseDate = 2020, ImagePath = "Images/Sage.png" },
-                new Agent { Name = "Cypher",  Gender = "Man",  RoleKey = "Sentinel", Continent = "Africa", ReleaseDate = 2020, ImagePath = "Images/Cypher.png" },
+                new Agent { Name = "Iso", Gender = "Man", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2023, ImagePath = "Images/Iso.png"},
+                new Agent { Name = "Jett",   Gender = "Woman", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2020, ImagePath = "Images/Jett.png"},
+                new Agent { Name = "KAY/O",  Gender = "Man", RoleKey = "Initiator", Continent = "Unkown", ReleaseDate = 2021, ImagePath = "Images/KAYO.png"},
                 new Agent { Name = "Killjoy", Gender = "Woman",RoleKey = "Sentinel",Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Killjoy.png" },
-                new Agent { Name = "Chamber",  Gender = "Man", RoleKey = "Sentinel",Continent = "Europe", ReleaseDate = 2021, ImagePath = "Images/Chamber.png"},
-                new Agent { Name = "Deadlock", Gender = "Woman",RoleKey = "Sentinel", Continent = "Europe", ReleaseDate = 2023, ImagePath = "Images/Deadlock.png"},
-                new Agent { Name = "Vyse",     Gender = "Woman", RoleKey = "Sentinel", Continent = "Unknown", ReleaseDate = 2024, ImagePath = "Images/Vyse.png"},
-                new Agent { Name = "Veto",    Gender = "Man",  RoleKey = "Sentinel", Continent = "Africa", ReleaseDate = 2025, ImagePath = "Images/Veto.png"}
+                new Agent { Name = "Neon", Gender = "Woman",RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2022, ImagePath = "Images/Neon.png"},
+                new Agent { Name = "Omen",    Gender = "Man",  RoleKey = "Controller", Continent = "Unknown", ReleaseDate = 2020 , ImagePath = "Images/Omen.png"},
+                new Agent { Name = "Phoenix", Gender = "Man", RoleKey = "Duelist",Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Phoenix.png"},
+                new Agent { Name = "Raze", Gender = "Woman", RoleKey = "Duelist", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Raze.png"},
+                new Agent { Name = "Reyna", Gender = "Woman", RoleKey = "Duelist",Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Reyna.png"},
+                new Agent { Name = "Sage",    Gender = "Woman", RoleKey = "Sentinel", Continent = "Asia", ReleaseDate = 2020, ImagePath = "Images/Sage.png" },
+                new Agent { Name = "Sova", Gender = "Man", RoleKey = "Initiator", Continent = "Europe", ReleaseDate = 2020, ImagePath = "Images/Sova.png"},
+                new Agent { Name = "Skye",   Gender = "Woman", RoleKey = "Initiator",Continent = "Oceania", ReleaseDate = 2020, ImagePath = "Images/Skye.png" },
+                 new Agent { Name = "Tejo",   Gender = "Man", RoleKey = "Initiator", Continent = "America", ReleaseDate = 2025, ImagePath = "Images/Tejo.png"},
+                 new Agent { Name = "Veto",    Gender = "Man",  RoleKey = "Sentinel", Continent = "Africa", ReleaseDate = 2025, ImagePath = "Images/Veto.png"},
+                 new Agent { Name = "Viper",    Gender = "Woman", RoleKey = "Controller", Continent = "America", ReleaseDate = 2020, ImagePath = "Images/Viper.png"  },
+                 new Agent { Name = "Vyse",     Gender = "Woman", RoleKey = "Sentinel", Continent = "Unknown", ReleaseDate = 2024, ImagePath = "Images/Vyse.png"},
+                 new Agent { Name = "Waylay",Gender = "Woman", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2025, ImagePath = "Images/Waylay.png"},
+                 new Agent { Name = "Yoru", Gender = "Man", RoleKey = "Duelist", Continent = "Asia", ReleaseDate = 2021, ImagePath = "Images/Yoru.png"}
             };
             AgentListBox.ItemsSource = _allAgents;
            
