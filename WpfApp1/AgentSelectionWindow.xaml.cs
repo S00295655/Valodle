@@ -28,6 +28,9 @@ namespace WpfApp1
         private List<Agent> _allAgents;
         private Random _random = new Random();
         private int _attemptCount = 0;
+        private bool maxguess = false;
+        private bool targetfound = false;
+
 
         private static readonly string[] Columns = { "Name", "Gender", "Role", "Continent", "Release Year" };
 
@@ -110,10 +113,17 @@ namespace WpfApp1
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedAgent = AgentListBox.SelectedItem as Agent;
-            if (_selectedAgent != null)
+            if (_attemptCount >4) maxguess = true;
+
+            if (_selectedAgent != null && !maxguess && !targetfound)
             {
                 SelectedAgentText.Text = _selectedAgent.Name;
                 ConfirmButton.IsEnabled = true;
+            }
+            else
+            {
+
+                ConfirmButton.IsEnabled = false;
             }
         }
 
@@ -122,18 +132,24 @@ namespace WpfApp1
             if (_selectedAgent == null) return;
 
             AddGuessRow(_selectedAgent);
+            
             _attemptCount++;
             AttemptText.Text = $"{_attemptCount} attempt(s)";
+            if (_targetAgent.Name == _selectedAgent.Name) targetfound = true;
 
-            if (_selectedAgent.Name == _targetAgent.Name)
-            {
-                MessageBox.Show($"VICTORY !!! You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!","", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-
-            if (_attemptCount > 4)
+            if (maxguess && !targetfound)
             {
                 MessageBox.Show($"DEFEAT... \n The answer was {_targetAgent.Name} !!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
+
+            if (targetfound)
+            {
+                MessageBox.Show($"VICTORY !!! You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!","", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            
 
             AgentListBox.SelectedItem = null;
             ConfirmButton.IsEnabled= false; 
@@ -174,7 +190,7 @@ namespace WpfApp1
 
             return new Border
             {
-                Background = nameOk ? Brushes.Green : Brushes.Red,
+                Background = nameOk ? Brushes.ForestGreen : Brushes.DarkRed,
                 CornerRadius = new CornerRadius(6),
                 Margin = new Thickness(4),
                 Height = 60,
@@ -183,37 +199,41 @@ namespace WpfApp1
         }
         private void AddGuessRow(Agent guess)
         {
-            var row = new Grid { Margin = new Thickness(0, 0, 0, 4) };
-            AddColumnsToGrid(row);
+            
+            if (!maxguess)
+            {
+                var row = new Grid { Margin = new Thickness(0, 0, 0, 4) };
+                AddColumnsToGrid(row);
 
-            var nameCell = MakeNameCell(guess);
-            Grid.SetColumn(nameCell, 0);
-            row.Children.Add(nameCell);
+                var nameCell = MakeNameCell(guess);
+                Grid.SetColumn(nameCell, 0);
+                row.Children.Add(nameCell);
 
-            bool genderOk = guess.Gender == _targetAgent.Gender;
-            var genderCell = MakeCell(guess.Gender, genderOk ? Brushes.Green : Brushes.Red, Brushes.White);
-            Grid.SetColumn(genderCell, 1);
-            row.Children.Add(genderCell);
+                bool genderOk = guess.Gender == _targetAgent.Gender;
+                var genderCell = MakeCell(guess.Gender, genderOk ? Brushes.ForestGreen : Brushes.DarkRed, Brushes.White);
+                Grid.SetColumn(genderCell, 1);
+                row.Children.Add(genderCell);
 
-            bool roleOk = guess.RoleKey == _targetAgent.RoleKey;
-            var roleCell = MakeCell(guess.RoleKey, roleOk ? Brushes.Green : Brushes.Red, Brushes.White);
-            Grid.SetColumn(roleCell, 2);
-            row.Children.Add(roleCell);
+                bool roleOk = guess.RoleKey == _targetAgent.RoleKey;
+                var roleCell = MakeCell(guess.RoleKey, roleOk ? Brushes.ForestGreen : Brushes.DarkRed, Brushes.White);
+                Grid.SetColumn(roleCell, 2);
+                row.Children.Add(roleCell);
 
-            bool contOk = guess.Continent == _targetAgent.Continent;
-            var contCell = MakeCell(guess.Continent, contOk ? Brushes.Green : Brushes.Red, Brushes.White);
-            Grid.SetColumn(contCell, 3);
-            row.Children.Add(contCell);
+                bool contOk = guess.Continent == _targetAgent.Continent;
+                var contCell = MakeCell(guess.Continent, contOk ? Brushes.ForestGreen : Brushes.DarkRed, Brushes.White);
+                Grid.SetColumn(contCell, 3);
+                row.Children.Add(contCell);
 
-            bool yearOk = guess.ReleaseDate == _targetAgent.ReleaseDate;
-            string yearText = guess.ReleaseDate.ToString();
-           
-           
-            var yearCell = MakeCell(yearText, yearOk ? Brushes.Green : Brushes.Red, Brushes.White);
-            Grid.SetColumn(yearCell, 4);
-            row.Children.Add(yearCell);
+                bool yearOk = guess.ReleaseDate == _targetAgent.ReleaseDate;
+                string yearText = guess.ReleaseDate.ToString();
 
-            GuessPanel.Children.Add(row);
+
+                var yearCell = MakeCell(yearText, yearOk ? Brushes.ForestGreen : Brushes.DarkRed, Brushes.White);
+                Grid.SetColumn(yearCell, 4);
+                row.Children.Add(yearCell);
+
+                GuessPanel.Children.Add(row);
+            }
 
         }
 
