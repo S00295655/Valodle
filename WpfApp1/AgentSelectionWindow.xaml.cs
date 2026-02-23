@@ -107,14 +107,14 @@ namespace WpfApp1
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedAgent = AgentListBox.SelectedItem as Agent;
-            if (_attemptCount >4) maxguess = true;
+            
 
             if (_selectedAgent != null && !maxguess && !targetfound)
             {
                 SelectedAgentText.Text = _selectedAgent.Name;
                 ConfirmButton.IsEnabled = true;
             }
-            else
+            if (maxguess || targetfound)
             {
 
                 ConfirmButton.IsEnabled = false;
@@ -124,6 +124,7 @@ namespace WpfApp1
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedAgent == null) return;
+            
 
             AddGuessRow(_selectedAgent);
             
@@ -131,17 +132,19 @@ namespace WpfApp1
             AttemptText.Text = $"{_attemptCount} attempt(s)";
             if (_targetAgent.Name == _selectedAgent.Name) targetfound = true;
 
-            if (maxguess && !targetfound)
+            if (targetfound)
             {
-                MessageBox.Show($"DEFEAT... \n The answer was {_targetAgent.Name} !!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"VICTORY !!! You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
-            if (targetfound)
+            if (_attemptCount>=5)
             {
-                MessageBox.Show($"VICTORY !!! You guessed {_targetAgent.Name} in {_attemptCount} attempt(s) !!","", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"DEFEAT... \n The answer was {_targetAgent.Name} !!", "dytdy", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
+
+       
 
             
 
